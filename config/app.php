@@ -145,7 +145,7 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 		'Collective\Html\HtmlServiceProvider',
-		'Maatwebsite\Excel\ExcelServiceProvider',
+		// 'Maatwebsite\Excel\ExcelServiceProvider',
 		'SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider',
 		'App\Modules\ModuleServiceProvider'
 
@@ -197,9 +197,9 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 		'Form' => 'Collective\Html\FormFacade',
-		'Html' => 'Collective\Html\HtmlFacade',	
+		'Html' => 'Collective\Html\HtmlFacade',
 		'Facebook' => 'SammyK\LaravelFacebookSdk\FacebookFacade',
-		'Excel' => 'Maatwebsite\Excel\Facades\Excel'
+		// 'Excel' => 'Maatwebsite\Excel\Facades\Excel'
 
 	],
 

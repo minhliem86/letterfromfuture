@@ -11,6 +11,14 @@ Route::group(['namespace'=>'App\Modules\Frontend\Controllers'],function(){
 
 	Route::get('/write-letter',['as'=>'frontend.getLetter','uses'=>'StudentController@getLetter']);
 	Route::post('write-letter-ajax',['as'=>'frontend.ajaxLetter','uses'=>'StudentController@ajaxLetter']);
-	Route::post('/write-letter',['as'=>'frontend.postLetter','uses'=>'StudentController@postLetter']);
+	// Route::post('/write-letter',['as'=>'frontend.postLetter','uses'=>'StudentController@postLetter']);
+
+	Route::post('/ajaxImgFB',['as'=>'frontend.AjaxImg','uses'=>'StudentController@AjaxImg']);
+
+	Route::post('/ajaxOrder',['as'=>'frontend.AjaxOrder','uses'=>'StudentController@AjaxOrder']);
+
+	Route::get('/done',['as'=>'frontend.Done', 'uses'=>'StudentController@getDone']);
+
+	Route::get('/test',['uses'=>'StudentController@testUpdate']);
 
 });

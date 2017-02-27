@@ -6,7 +6,6 @@
 	"type": "project",
 	"require": {
 		"laravel/framework": "5.0.*",
-		"maatwebsite/excel": "~2.1.0",
 		"laravelcollective/html": "~5.0",
 		"sammyk/laravel-facebook-sdk": "2.2.0"
 	},
