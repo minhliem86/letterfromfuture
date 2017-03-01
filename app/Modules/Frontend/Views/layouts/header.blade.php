@@ -3,7 +3,7 @@
 				<div class="row">
 					<div class="inner-header clearfix">
 						<div class="navbar-header">
-							<a href="#" class="logo"><img src="{!!asset('public/assets/frontend')!!}/images/logo.png" class="img-responsive" alt="ILA"></a>
+							<a href="{!!route('homepage')!!}" class="logo"><img src="{!!asset('public/assets/frontend')!!}/images/logo.png" class="img-responsive" alt="ILA"></a>
 							<button type="button" class="navbar-toggle collapsed visible-sm visible-xs visible-ms" data-toggle="collapse" data-target="#main-navbar" aria-expanded="false">
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>

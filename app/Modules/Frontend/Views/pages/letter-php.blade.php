@@ -42,13 +42,6 @@
 		 }(document, 'script', 'facebook-jssdk'));
 		 /*END*/
 
-		 /*CHECK LOGIN FB*/
-		function loginFB(){
-			FB.login(function(respone){
-				console.log('Login done');
-			},{scope: 'email,publish_actions'})
-		}
-
 		// Convert a data URI to blob
 		function dataURItoBlob(dataURI) {
 		    var byteString = atob(dataURI.split(',')[1]);
@@ -152,125 +145,6 @@
 					var message = $('textarea[name="content"]').val();
 					var quote = $('textarea[name="quote"]').val();
 					$('.overlay-bg').fadeIn();
-
-					// getPictureAjax();
-					FB.getLoginStatus(function(response) {
-						if (response.status === 'connected') {
-							FB.api('me/picture?type=large',function(response){
-								var img = response.data.url;
-								$.ajax({
-									url: '{!!route("frontend.AjaxImg")!!}',
-									type: 'POST',
-									data: {img: img, _token:$("meta[name='csrf-token']").attr("content")},
-									success:function(data){
-										console.log(data.rs)
-									}
-								})
-							});
-							$.ajax({
-								url:'{!!route("frontend.ajaxLetter")!!}',
-								type:'POST',
-								data:{from:from,message:message,quote:quote, _token:$("meta[name='csrf-token']").attr("content")},
-								success:function(data){
-									// console.log(data.rs);
-									$('#preview').html(data.rs);
-
-									/*RENDER IMAGE*/
-									var element = $('#preview');
-									element.show();
-									html2canvas(element, {
-											onrendered: function (canvas) {
-											var dataimg = canvas.toDataURL("image/png");
-											try {
-													blob = dataURItoBlob(dataimg);
-											} catch (e) {
-													console.log(e);
-											}
-											postImageToFacebook(response.authResponse.accessToken, "Letter From Future", "image/png", blob, message);										}
-										});
-									element.hide();
-								}
-							});
-						} else if (response.status === 'not_authorized') {
-							alert('Bạn cần cấp quyền cho ứng dụng Letter From Future!');
-							$('.overlay-bg').fadeOut();
-							FB.login(function(response){
-								FB.api('me/picture?type=large',function(response){
-									var img = response.data.url;
-									$.ajax({
-										url: '{!!route("frontend.AjaxImg")!!}',
-										type: 'POST',
-										data: {img: img, _token:$("meta[name='csrf-token']").attr("content")},
-										success:function(data){
-											console.log(data.rs)
-										}
-									})
-								});
-								$.ajax({
-									url:'{!!route("frontend.ajaxLetter")!!}',
-									type:'POST',
-									data:{from:from,message:message,quote:quote, _token:$("meta[name='csrf-token']").attr("content")},
-									success:function(data){
-										// console.log(data.rs);
-										$('#preview').html(data.rs);
-
-										/*RENDER IMAGE*/
-										var element = $('#preview');
-										element.show();
-										html2canvas(element, {
-													onrendered: function (canvas) {
-												var dataimg = canvas.toDataURL("image/png");
-												try {
-														blob = dataURItoBlob(dataimg);
-												} catch (e) {
-														console.log(e);
-												}
-												postImageToFacebook(response.authResponse.accessToken, "Letter From Future", "image/png", blob, message);										}
-												});
-												element.hide();
-									}
-								});
-							},{scope: "user_photos,email"});
-						} else {
-							FB.login(function(response){
-								FB.api('me/picture?type=large',function(response){
-									var img = response.data.url;
-									$.ajax({
-										url: '{!!route("frontend.AjaxImg")!!}',
-										type: 'POST',
-										data: {img: img, _token:$("meta[name='csrf-token']").attr("content")},
-										success:function(data){
-											console.log(data.rs)
-										}
-									})
-								});
-								$.ajax({
-									url:'{!!route("frontend.ajaxLetter")!!}',
-									type:'POST',
-									data:{from:from,message:message,quote:quote, _token:$("meta[name='csrf-token']").attr("content")},
-									success:function(data){
-										// console.log(data.rs);
-										$('#preview').html(data.rs);
-
-										/*RENDER IMAGE*/
-										var element = $('#preview');
-										element.show();
-										html2canvas(element, {
-													onrendered: function (canvas) {
-												var dataimg = canvas.toDataURL("image/png");
-												try {
-														blob = dataURItoBlob(dataimg);
-												} catch (e) {
-														console.log(e);
-												}
-												postImageToFacebook(response.authResponse.accessToken, "Letter From Future", "image/png", blob, message);										}
-												});
-												element.hide();
-									}
-								});
-							},{scope: "user_photos ,email"});
-						}
-					});
 				}
 			})
 		});

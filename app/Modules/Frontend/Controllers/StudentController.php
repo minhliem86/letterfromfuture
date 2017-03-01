@@ -16,8 +16,8 @@ class StudentController extends Controller {
 		$this->studentRepository = $studentInterface;
 	}
 
-	public function getIndex(){
-		return view('Frontend::pages.home');
+	public function getIndex($slug){
+
 	}
 
 	public function getLogin(){
@@ -34,16 +34,15 @@ class StudentController extends Controller {
 				if($student_name->joined != 1){
 					return response()->json(['result'=>$student_name->name]);
 				}else{
-					return response()->json(['result'=>'Mỗi học viê chỉ có thể tham gia 01 lần.']);
+					return response()->json(['result'=>'Mỗi học viên chỉ có thể tham gia 01 lần.']);
 				}
-				
 			}else{
-				return response()->json(['result'=>'Mã học viên không chính xác.']);
+				return response()->json(['result'=>'Mã học viên không chính xác']);
 			}
 		}
 	}
 
-	
+
 	public function postLogin(Request $request){
 		$student_code = $request->input('code');
 		$data = $this->studentRepository->getStudent($student_code);
@@ -54,7 +53,7 @@ class StudentController extends Controller {
 			}else{
 				return redirect()->back()->with('error','Mỗi học viê chỉ có thể tham gia 01 lần. Vui lòng đợi kết quả từ ILA.');
 			}
-			
+
 		}else{
 			return redirect()->back()->with('error','Mã học viên không chính xác');
 		}
@@ -67,7 +66,7 @@ class StudentController extends Controller {
 		}else{
 			return redirect()->back();
 		}
-		
+
 	}
 
 	public function AjaxImg(Request $request){
@@ -109,10 +108,10 @@ class StudentController extends Controller {
 
 	public function getDone(){
 		\Session::forget('student_code');
-		return redirect()->route('homepage');
+		return view('Frontend::pages.thankyou');
 	}
 
-	
+
 
 
 }

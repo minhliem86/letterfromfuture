@@ -11,7 +11,7 @@
 					'data' : {code: val, _token:$('meta[name="csrf-token"]').attr('content')},
 					'type' : 'POST',
 					success: function(data){
-						if(data.result != 'Vui lòng nhập chính xác mã học viên'){
+						if(data.result != 'Mã học viên không chính xác' && data.result != 'Mỗi học viên chỉ có thể tham gia 01 lần.'){
 							$('input[type="submit"]').removeAttr('disabled');
 						}else{
 							$('input[type="submit"]').attr('disabled','disabled');

@@ -7,15 +7,15 @@
 
 	<link rel="stylesheet" href="{!!asset('public/assets/frontend')!!}/css/bootstrap-me_min.css">
 	<link rel="stylesheet" href="{!!asset('public/assets/frontend')!!}/css/animate.css">
+	<link rel="stylesheet" href="{!!asset('public/assets/frontend')!!}/css/font-awesome.min.css">
 	<link rel="stylesheet" href="{!!asset('public/assets/frontend')!!}/css/style.css">
 
 	<title>@yield('title','Letter From Future')</title>
 </head>
 <body>
 	<div class="bg">
-
 		@yield('content')
-
+		
 		@include('Frontend::layouts.footer')
 	</div>
 
@@ -30,7 +30,14 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			var w_window = $(window).width();
+
+			if(w_window < 850){
+				h_nav = 0;
+			}else{
+				h_nav = $('.header').height();
+			}
 			/*ACTIVE MENU*/
+
 			$('ul.ul-navbar li').click(function(){
 				var h_nav;
 				$('ul.ul-navbar li').removeClass('active');
