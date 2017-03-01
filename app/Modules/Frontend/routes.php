@@ -5,7 +5,7 @@ Route::group(['namespace'=>'App\Modules\Frontend\Controllers'],function(){
 	Route::get('import-data',['as'=>'getImportdata','uses'=>'ImportdataController@getImport']);
 	Route::post('import-data',['as'=>'postImportdata','uses'=>'ImportdataController@postImport']);
 
-	Route::get('/thu-tu-tuong-lai/{slug?}',['as'=>'homepage','uses'=>'HomeController@getBaiduthi']);
+	Route::get('/',['as'=>'homepage','uses'=>'HomeController@getBaiduthi']);
 	Route::post('/ajaxShowmoreBaiThi',['as'=>'frontend.ajaxShowmoreBaiThi','uses'=>'HomeController@ajaxShowmoreBaiThi']);
 	Route::post('/ajaxShowmoreTop50',['as'=>'frontend.ajaxShowmoreTop50','uses'=>'HomeController@ajaxShowmoreTop50']);
 
@@ -31,6 +31,6 @@ Route::group(['namespace'=>'App\Modules\Frontend\Controllers'],function(){
 	// FACEBOOK SDK VIA LARAVEL
 	Route::get('/letter',['as'=>'fb.getLetter','uses'=>'FacebookController@getLetter']);
 
-	Route::get('/letter/process',['as'=>'fb.postLetter','uses'=>'FacebookController@postLetter'])
+	Route::get('/letter/process',['as'=>'fb.postLetter','uses'=>'FacebookController@postLetter']);
 
 });

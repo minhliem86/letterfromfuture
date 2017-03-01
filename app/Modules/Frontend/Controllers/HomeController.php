@@ -39,32 +39,7 @@ class HomeController extends Controller {
       $top4 = null;
       $data_id_current = null;
     }
-
-    switch ($slug) {
-      case 'cuoc-thi':
-        Session::flash('section','context');
-        return view('Frontend::pages.home',compact('top_baiduthi','latest_item','top50','top4','data_id_current'));
-        break;
-      case 'the-le':
-        Session::flash('section','term');
-        return view('Frontend::pages.home',compact('top_baiduthi','latest_item','top50','top4','data_id_current'));
-        break;
-      case 'top50':
-        Session::flash('section','top50');
-        return view('Frontend::pages.home',compact('top_baiduthi','latest_item','top50','top4','data_id_current'));
-        break;
-      case 'bai-du-thi':
-        Session::flash('section','baiduthi');
-        return view('Frontend::pages.home',compact('top_baiduthi','latest_item','top50','top4','data_id_current'));
-        break;
-      default:
-        Session::forget('section');
-        return view('Frontend::pages.home',compact('top_baiduthi','latest_item','top50','top4','data_id_current'));
-        break;
-    }
-
-
-    // return view('Frontend::pages.home',compact('top_baiduthi','latest_item','top50','top4','data_id_current'));
+    return view('Frontend::pages.home',compact('top_baiduthi','latest_item','top50','top4','data_id_current'));
 
   }
 

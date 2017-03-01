@@ -47,12 +47,6 @@
 				}
 			})
 		})
-
-		@if(Session::has('section'))
-			$('html, body').animate({
-				scrollTop:$('#{!!Session::get("section")!!}').offset().top - h_nav
-			},2000)
-		@endif
 	})
 </script>
 @stop
@@ -63,7 +57,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="inner-banner">
-				<div class="banner-container">
+				<!-- <div class="banner-container">
 					<ul>
 						<li data-transition="boxslide" data-slotamount="7">
 							<img src="{!!asset('public/assets/frontend')!!}/images/banner.png" class="img-responsive" alt="Letter for future">
@@ -71,7 +65,7 @@
 								<div class="wrap-caption-content">
 									<p class="normal-text">
 										Cuộc thi viết tiếng Anh hào hứng nhất trong năm
-										<span class="title-banner">"2020 TO 2017"</span>
+										<span class="title-banner">"Thư gửi từ tương lai"</span>
 									</p>
 								</div>
 							</div>
@@ -90,7 +84,8 @@
 						</li>
 
 					</ul>
-				</div>
+				</div> -->
+				<img src="{!!asset('public/assets/frontend')!!}/images/banner.png" class="img-responsive" alt="Thư gửi từ tương lai">
 
 			</div> <!-- end inner-banner-->
 		</div>
@@ -101,9 +96,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="inner-context">
-				<h1 class="title01">Cuộc thi viết tiếng Anh hào hứng nhất trong năm<span class="year">"2020 TO 2017"</span></h1>
+				<h1 class="title01">Cuộc thi viết tiếng Anh hào hứng nhất trong năm<span class="year">"Thư gửi từ tương lai"</span></h1>
 
-				<p class="des-context">Hãy tưởng tượng bạn đang ở năm 2020, bạn đang ở đâu, đang làm gì, đã thay đổi như thế nào, đã có mơ ước nào được thành hiện thực chưa? Hãy viết một bức thư bằng tiếng Anh mô tả bạn ở 2020 và gửi đến cho chính mình ở năm 2017 nhé, nếu được, gửi thêm cho bản thân những lời khuyên chân thành nhất nữa.</p>
+				<p class="des-context">Hãy tưởng tượng bạn đang ở năm 2030, bạn đang ở đâu, đang làm gì, đã thay đổi như thế nào, đã có mơ ước nào được thành hiện thực chưa? Hãy viết một bức thư bằng tiếng Anh mô tả bạn ở 2030 và gửi đến cho chính mình ở năm 2017 nhé, nếu được, gửi thêm cho bản thân những lời khuyên chân thành nhất nữa.</p>
 				<p class="des-context">Chủ đề thật thú vị phải không nào? Hãy click “Tham gia” và bắt tay vào viết ngay thôi, vì phần thưởng vô cùng hấp dẫn đấy!</p>
 			</div>	<!-- end inner-context-->
 		</div>
@@ -124,8 +119,8 @@
 										<li>Cuộc thi dành riêng cho học viên <span class="align">Super Juniors và Smart Teens của ILA.</span></li>
 										<li>Bức thư viết bằng tiếng Anh.</li>
 										<li>Độ dài: tối đa 200 chữ.</li>
-										<li>Hạn chót tham gia: 10/03/2017</li>
-										<li>Ngày thông báo kết quả: 15/03/2017</li>
+										<li>Hạn chót tham gia: 31/03/2017</li>
+										<li>Ngày thông báo kết quả: 10/04/2017</li>
 									</ul>
 								</div> <!-- end each term-->
 							</div>

@@ -54,7 +54,7 @@ a,a:hover, a:focus{
 		.inner-header{
 			background:$xanhila;
 			padding:0 120px;
-			height:120px;
+			height:90px;
 			overflow:hidden;
 			@include media(320px,991px){
 				height:auto;
@@ -64,7 +64,7 @@ a,a:hover, a:focus{
 			.navbar-header{
 				width:70px;
 				float:left;
-				padding-top:2.2rem;
+				padding-top:1rem;
 				@include media(320px, 991px){
 					padding-top:15px;
 					padding-bottom:15px;
@@ -118,7 +118,7 @@ a,a:hover, a:focus{
 				ul.ul-navbar{
 					margin:0;
 					text-align: right;
-					padding-top:4.7rem;
+					padding-top:3.5rem;
 					@include media(320px, 991px){
 						padding-top:0;
 						text-align: left;
@@ -264,7 +264,7 @@ a,a:hover, a:focus{
 			padding:4rem 6rem;
 		}
 		h1.title01{
-			font-size:2.8rem;
+			font-size:2.4rem;
 			color:$text01;
 			text-transform: uppercase;
 			line-height:3.2rem;
@@ -272,8 +272,8 @@ a,a:hover, a:focus{
 			font-weight: 600;
 			span.year{
 				display:block;
-				font-size:5.5rem;
-				line-height:6rem;
+				font-size:4rem;
+				line-height:5.2rem;
 				color:$do;
 			}
 			@include media(320px, 480px){

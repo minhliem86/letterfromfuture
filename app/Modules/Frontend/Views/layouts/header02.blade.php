@@ -12,10 +12,10 @@
 						</div>
 						<div class="collapse navbar-collapse" id="main-navbar">
 							<ul class="ul-navbar">
-								<li><a href="{!!route('homepage','cuoc-thi')!!}">Cuộc thi</a></li>
-								<li><a href="{!!route('homepage','the-le')!!}">Thể lệ</a></li>
-								<li ><a href="{!!route('homepage','top50')!!}" class="disable-link">Top 50</a></li>
-								<li ><a href="{!!route('homepage','bai-du-thi')!!}">Bài dự thi</a></li>
+								<li><a href="{!!route('homepage')!!}">Cuộc thi</a></li>
+								<li><a href="{!!route('homepage')!!}">Thể lệ</a></li>
+								<li ><a href="{!!route('homepage')!!}" class="disable-link">Top 50</a></li>
+								<li ><a href="{!!route('homepage')!!}">Bài dự thi</a></li>
 							</ul>
 						</div>
 					</div> <!-- end inner-header-->
