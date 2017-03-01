@@ -1519,6 +1519,35 @@ a,a:hover, a:focus{
 			border-radius:20px;
 			min-height:350px;
 			text-align: center;
+			position:relative;
+			h2{
+				font-size:2.4rem;
+				color:$text01;
+				text-transform: uppercase;
+				line-height:3.2rem;
+				font-weight: 600;
+				width:100%;
+				position:absolute;
+				top:50%;
+				left:50%;
+				transform:translateX(-50%) translateY(-50%);
+				-webkit-transform:translateX(-50%) translateY(-50%);
+				-moz-transform:translateX(-50%) translateY(-50%);
+				span.year{
+					display:block;
+					font-size:4rem;
+					line-height:5.2rem;
+					color:$do;
+				}
+				@include media(320px, 480px){
+					font-size:2.2rem;
+					line-height:2.8rem;
+					span.year{
+						font-size:3.5rem;
+						line-height:4rem;
+					}
+				}
+			}
 		}
 	}
 }

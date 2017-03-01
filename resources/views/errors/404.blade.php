@@ -7,7 +7,7 @@
 				<div class="row">
 					<div class="inner-thank">
 						<div class="wrap-thank clearfix">
-							<h2>Cảm ơn bạn đã tham gia cuộc thi<span class="year">"Thư gửi từ tương lai"</h2>
+							<h2>Rất tiếc trang bạn đang tìm kiếm hiện không có !</h2>
 						</div>
 					</div>
 				</div>

@@ -24,7 +24,7 @@ Route::group(['namespace'=>'App\Modules\Frontend\Controllers'],function(){
 
 	Route::post('/ajaxOrder',['as'=>'frontend.AjaxOrder','uses'=>'StudentController@AjaxOrder']);
 
-	Route::get('/done',['as'=>'frontend.Done', 'uses'=>'StudentController@getDone']);
+	Route::get('/thank-you',['as'=>'frontend.Done', 'uses'=>'StudentController@getDone']);
 
 	Route::get('/test',['uses'=>'HomeController@test']);
 
