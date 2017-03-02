@@ -290,6 +290,7 @@
 @section('content')
 
 <div class="overlay-bg	"></div>
+@include('Frontend::layouts.header02')
 <div class="section letter">
 		<div class="container">
 			<div class="row">
