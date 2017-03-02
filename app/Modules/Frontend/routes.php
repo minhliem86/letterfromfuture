@@ -24,9 +24,11 @@ Route::group(['namespace'=>'App\Modules\Frontend\Controllers'],function(){
 
 	Route::post('/ajaxOrder',['as'=>'frontend.AjaxOrder','uses'=>'StudentController@AjaxOrder']);
 
+	Route::post('/ajaxImgUpload',['as'=>'frontend.AjaxGetImg','uses'=>'StudentController@AjaxGetImg']);
+
 	Route::get('/thank-you',['as'=>'frontend.Done', 'uses'=>'StudentController@getDone']);
 
-	Route::get('/test',['uses'=>'HomeController@test']);
+	Route::get('/test',['uses'=>'StudentController@test']);
 
 	// FACEBOOK SDK VIA LARAVEL
 	Route::get('/letter',['as'=>'fb.getLetter','uses'=>'FacebookController@getLetter']);

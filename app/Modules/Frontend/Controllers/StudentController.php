@@ -49,6 +49,7 @@ class StudentController extends Controller {
 		if(!empty($data)){
 			if($data->joined != 1){
 				$student_code_ses = $request->session()->put('student_code',$student_code);
+				Session::put('id_hocvien',$data->id);
 				return redirect()->route('frontend.getLetter');
 			}else{
 				return redirect()->back()->with('error','Mỗi học viê chỉ có thể tham gia 01 lần. Vui lòng đợi kết quả từ ILA.');
@@ -60,7 +61,7 @@ class StudentController extends Controller {
 	}
 
 	public function getLetter(){
-		if(Session::has('student_code')){
+		if(Session::has('student_code') && Session::has('id_hocvien')){
 			$data = $this->studentRepository->getStudent(Session::get('student_code'));
 			return view('Frontend::pages.letter',compact('data'));
 		}else{
@@ -106,12 +107,26 @@ class StudentController extends Controller {
 		}
 	}
 
+	public function AjaxGetImg(Request $request){
+		if($request->ajax()){
+			$path = 'public/upload/img-user';
+			$name = time().'-'.Session::get('student_code');
+			$img = \Image::make($request->input('img'))->save($path.'/'.$name.'.png');
+			$data = [
+				'img_upload' => asset('public/upload/img-user').'/'.$name.'.png',
+			];
+			$update_student = $this->studentRepository->updateAccount(Session::get('student_code'),$data);
+			return response()->json(['rs'=>'ok']);
+		}
+	}
+
 	public function getDone(){
 		\Session::forget('student_code');
 		return view('Frontend::pages.thankyou');
 	}
 
-
+public function test(){
+}
 
 
 }

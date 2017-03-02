@@ -5,6 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="csrf-token" content="{!! csrf_token() !!}">
 
+	@yield('meta')
+
 	<link rel="stylesheet" href="{!!asset('public/assets/frontend')!!}/css/bootstrap-me_min.css">
 	<link rel="stylesheet" href="{!!asset('public/assets/frontend')!!}/css/animate.css">
 	<link rel="stylesheet" href="{!!asset('public/assets/frontend')!!}/css/font-awesome.min.css">
@@ -15,7 +17,7 @@
 <body>
 	<div class="bg">
 		@yield('content')
-		
+
 		@include('Frontend::layouts.footer')
 	</div>
 

@@ -18,7 +18,7 @@ class StudentRepository implements StudentRepositoryInterface{
 	}
 
 	public function getStudent($filter){
-		return $this->student->where('student_account',$filter)->select('name','student_account','fb_img','fb_name','img_upload','letter_content','letter_quote','joined')->first();
+		return $this->student->where('student_account',$filter)->select('id','name','student_account','fb_img','fb_name','img_upload','letter_content','letter_quote','joined')->first();
 	}
 
 	/*HOME PAGE*/

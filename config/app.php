@@ -147,7 +147,8 @@ return [
 		'Collective\Html\HtmlServiceProvider',
 		'Maatwebsite\Excel\ExcelServiceProvider',
 		'SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider',
-		'App\Modules\ModuleServiceProvider'
+		'App\Modules\ModuleServiceProvider',
+		'Intervention\Image\ImageServiceProvider'
 
 	],
 
@@ -199,7 +200,8 @@ return [
 		'Form' => 'Collective\Html\FormFacade',
 		'Html' => 'Collective\Html\HtmlFacade',
 		'Facebook' => 'SammyK\LaravelFacebookSdk\FacebookFacade',
-		'Excel' => 'Maatwebsite\Excel\Facades\Excel'
+		'Excel' => 'Maatwebsite\Excel\Facades\Excel',
+		'Image' => 'Intervention\Image\Facades\Image'
 
 	],
 

@@ -43,11 +43,11 @@
 		 /*END*/
 
 		 /*CHECK LOGIN FB*/
-		// function loginFB(){
-		// 	FB.login(function(respone){
-		// 		console.log('Login done');
-		// 	},{scope: 'email,publish_actions'})
-		// }
+		function loginFB(){
+			FB.login(function(respone){
+				console.log('Login done');
+			},{scope: 'email,publish_actions'})
+		}
 
 		// Convert a data URI to blob
 		function dataURItoBlob(dataURI) {
@@ -61,43 +61,73 @@
 		        type: 'image/png'
 		    });
 		}
-		// POST FB
-		function postFacebook(filename,caption,description,link){
-			FB.api('https://graph.facebook.com/', 'post', {
-					id: link,
-					scrape: true
-			}, function(response) {
-				FB.ui({
-					method: 'feed',
-					display: 'popup',
-					name: filename,
-					caption: caption,
-					description: description,
-					link : link,
-				},function(res){
-					if(typeof res !== 'undefined'){
 
-						var linkfb = 'https://www.facebook.com/'+res.post_id;
-						$.ajax({
-							'url': '{!!route("frontend.AjaxOrder")!!}',
-							'type':'POST',
-							data: {link:linkfb, _token:$("meta[name='csrf-token']").attr("content")},
-							success:function(data){
 
-								if(data.rs == "Đã tham dự"){
-										window.location = "{!!route('frontend.Done')!!}";
-								}
-							}
-						})
 
-					}else{
-						alert('Để hoàn tất cuộc thi, bạn phải share bài viết của bạn trên status ở chế độ public!');
-						$('.overlay-bg').fadeOut();
-					}
-				})
-			});
+
+		function postImageToFacebook(token, filename, mimeType, imageData, message) {
+		    var fd = new FormData();
+		    fd.append("access_token", token);
+		    fd.append("source", imageData);
+		    fd.append("no_story", true);
+
+		    // Upload image to facebook without story(post to feed)
+		    $.ajax({
+		        url: "https://graph.facebook.com/me/photos?access_token=" + token,
+		        type: "POST",
+		        data: fd,
+		        processData: false,
+		        contentType: false,
+		        cache: false,
+		        success: function (data) {
+		            // Get image source url
+		            FB.api(
+		                "/" + data.id + "?fields=images",
+		                function (response) {
+		                    if (response && !response.error) {
+								FB.ui({
+								  method: 'feed',
+								  display: 'popup',
+								  name: filename,
+								  caption: 'Letter From Future',
+								  description: message,
+								  picture: response.images[0].source,
+								  link : '{!!route("homepage")!!}',
+
+								}, function(response){
+									if(typeof response !== 'undefined'){
+										console.log(response.post_id);
+										var link = 'https://www.facebook.com/'+response.post_id;
+										$.ajax({
+											'url': '{!!route("frontend.AjaxOrder")!!}',
+											'type':'POST',
+											data: {link:link, _token:$("meta[name='csrf-token']").attr("content")},
+											success:function(data){
+												console.log(data.rs);
+											}
+										})
+										 window.location = "{!!route('frontend.Done')!!}"
+									}else{
+										// console.log('you must share');
+
+										alert('Để hoàn tất cuộc thi, bạn phải share bài viết của bạn trên status ở chế độ public!');
+										$('.overlay-bg').fadeOut();
+									}
+								});
+		                    }
+		                }
+		            );
+		        }
+		        // error: function (shr, status, data) {
+		        //     console.log("error " + data + " Status " + shr.status);
+		        // },
+		        // complete: function (data) {
+		        //     console.log('Post to facebook Complete');
+
+		        //     // window.location = "{!!url('done')!!}"
+		        // }
+		    });
 		}
-
 	</script>
 	<script type="text/javascript">
 		$(document).ready(function(){
@@ -153,23 +183,14 @@
 									element.show();
 									html2canvas(element, {
 											onrendered: function (canvas) {
-												var dataimg = canvas.toDataURL("image/png");
-												try {
-														blob = dataURItoBlob(dataimg);
-												} catch (e) {
-														console.log(e);
-												}
-
-												$.ajax({
-													url: '{!!route("frontend.AjaxGetImg")!!}',
-													type:'POST',
-													data: {img:dataimg,  _token:$("meta[name='csrf-token']").attr("content")},
-													success:function(data){
-															console.log(data.rs);
-													}
-												});
-												postFacebook('Thư Từ Tương Lai',quote,message,'{!!route("frontend.BaivietDetail",Session::get("id_hocvien"))!!}')
+											var dataimg = canvas.toDataURL("image/png");
+											try {
+													blob = dataURItoBlob(dataimg);
+											} catch (e) {
+													console.log(e);
 											}
+											postImageToFacebook(response.authResponse.accessToken, "Letter From Future", "image/png", blob, message);
+										}
 										});
 									element.hide();
 								}
@@ -185,9 +206,7 @@
 										type: 'POST',
 										data: {img: img, _token:$("meta[name='csrf-token']").attr("content")},
 										success:function(data){
-											if(data.rs = 'ok'){
-												console.log('IMG upload OK');
-											}
+											console.log(data.rs)
 										}
 									})
 								});
@@ -204,29 +223,18 @@
 										element.show();
 										html2canvas(element, {
 													onrendered: function (canvas) {
-														var dataimg = canvas.toDataURL("image/png");
-														try {
-																blob = dataURItoBlob(dataimg);
-														} catch (e) {
-																console.log(e);
-														}
-														$.ajax({
-															url: '{!!route("frontend.AjaxGetImg")!!}',
-															type:'POST',
-															data: {img:dataimg,  _token:$("meta[name='csrf-token']").attr("content")},
-															success:function(data){
-																if(data.rs = 'ok'){
-																	console.log('IMG upload OK');
-																}
-															}
-														});
-														postFacebook('Thư Từ Tương Lai',quote,message,'{!!route("frontend.BaivietDetail",Session::get("id_hocvien"))!!}')
-													}
-											});
-											element.hide();
-										}
-									});
-								},{scope: "email"});
+												var dataimg = canvas.toDataURL("image/png");
+												try {
+														blob = dataURItoBlob(dataimg);
+												} catch (e) {
+														console.log(e);
+												}
+												postImageToFacebook(response.authResponse.accessToken, "Letter From Future", "image/png", blob, message);										}
+												});
+												element.hide();
+									}
+								});
+							},{scope: "user_photos,email"});
 						} else {
 							FB.login(function(response){
 								FB.api('me/picture?type=large',function(response){
@@ -252,31 +260,19 @@
 										var element = $('#preview');
 										element.show();
 										html2canvas(element, {
-											onrendered: function (canvas) {
+													onrendered: function (canvas) {
 												var dataimg = canvas.toDataURL("image/png");
 												try {
 														blob = dataURItoBlob(dataimg);
 												} catch (e) {
 														console.log(e);
 												}
-													$.ajax({
-														url: '{!!route("frontend.AjaxGetImg")!!}',
-														type:'POST',
-														data: {img:dataimg,  _token:$("meta[name='csrf-token']").attr("content")},
-														success:function(data){
-															if(data.rs = 'ok'){
-																console.log('IMG upload OK');
-															}
-														}
-													});
-													postFacebook('Thư Từ Tương Lai',quote,message,'{!!route("frontend.BaivietDetail",Session::get("id_hocvien"))!!}')
-												}
-											});
-											element.hide();
-										},
-									});
-
-							},{scope: "email"});
+												postImageToFacebook(response.authResponse.accessToken, "Letter From Future", "image/png", blob, message);										}
+												});
+												element.hide();
+									}
+								});
+							},{scope: "publish_actions ,user_photos ,email"});
 						}
 					});
 				}
@@ -289,6 +285,7 @@
 
 @section('content')
 
+@include('Frontend::layouts.header02')
 <div class="overlay-bg	"></div>
 <div class="section letter">
 		<div class="container">
@@ -296,10 +293,12 @@
 				<div class="inner-letter clearfix">
 					<form action="" method="POST" class="form-letter">
 						{!!Form::token()!!}
+						<input type="hidden" name="fb_img">
+						<input type="hidden" name="fb_link">
 						<div class="left-letter">
 							<div class="wrap-content-left">
 								<div class="wrap-top">
-									<p class="normal-text"><label for="from">From: </label><input type="text" name="from" class="input-letter from-input" disabled="disabled" value="{!!$data->name!!} 2030"></p>
+									<p class="normal-text"><label for="from">From: </label><input type="text" name="from" class="input-letter from-input" disabled="disabled" value="{!!$data->name!!} 2020"></p>
 									<p class="normal-text"><label for="to">To: </label><input type="text" name="to" class="input-letter to-input" disabled="disabled" value="{!!$data->name!!} 2017"></p>
 								</div>
 								<div class="wrap-bottom">
@@ -311,7 +310,7 @@
 
 								<div class="signature">
 									<p class="normal-text">Sincerely</p>
-									<p class="normal-text"><b>{!!$data->name!!} 2030</b></p>
+									<p class="normal-text"><b>{!!$data->name!!} 2020</b></p>
 								</div>
 							</div>
 						</div>

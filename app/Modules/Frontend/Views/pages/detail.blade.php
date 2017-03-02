@@ -1,5 +1,9 @@
 @extends('Frontend::layouts.default')
 
+@section('meta')
+	<meta property="og:image" content="{!!$baiviet->img_upload!!}">
+@stop
+
 @section('script')
 	<script type="text/javascript" src="{!!asset('public/assets/frontend')!!}/js/jquery.nicescroll.min.js"></script>
 	<script type="text/javascript">
