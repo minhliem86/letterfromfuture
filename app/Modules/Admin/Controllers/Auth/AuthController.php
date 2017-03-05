@@ -8,7 +8,10 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Validator;
 use Auth;
 use App\Models\User;
+use App\Models\Permission;
+use App\Models\Role;
 use Illuminate\Http\Request;
+
 
 class AuthController extends Controller {
 
@@ -77,7 +80,7 @@ class AuthController extends Controller {
 	 */
 	public function postRegister(Request $request)
 	{
-		$validator = $this->registrar->validator($request->all());
+		$validator = $this->validator($request->all());
 
 		if ($validator->fails())
 		{
@@ -85,8 +88,36 @@ class AuthController extends Controller {
 				$request, $validator
 			);
 		}
+		$user = $this->registrar->create($request->all());
+		$data_role = $request->input('role');
 
-		$this->auth->login($this->registrar->create($request->all()));
+		$permission = new Permission();
+		$permission->name = 'can_login';
+		$permission->display_name = 'Login Permission';
+		$permission->description = 'Can login CMS';
+		$permission->save();
+
+		$role = new Role();
+
+		switch ($data_role) {
+			case 'admin':
+				$role->name = $data_role;
+				$role->display_name = 'Administrator';
+				break;
+
+			default:
+				$role->name = $data_role;
+				$role->display_name = 'Teacher ';
+				break;
+		}
+
+		$role->save();
+
+		$role->attachPermission($permission);
+
+		$user->attachRole($role);
+
+		$this->auth->login($user);
 
 		return redirect($this->redirectPath());
 	}

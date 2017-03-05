@@ -148,7 +148,8 @@ return [
 		'Maatwebsite\Excel\ExcelServiceProvider',
 		'SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider',
 		'App\Modules\ModuleServiceProvider',
-		'Intervention\Image\ImageServiceProvider'
+		'Intervention\Image\ImageServiceProvider',
+		'Zizaco\Entrust\EntrustServiceProvider'
 
 	],
 
@@ -201,7 +202,8 @@ return [
 		'Html' => 'Collective\Html\HtmlFacade',
 		'Facebook' => 'SammyK\LaravelFacebookSdk\FacebookFacade',
 		'Excel' => 'Maatwebsite\Excel\Facades\Excel',
-		'Image' => 'Intervention\Image\Facades\Image'
+		'Image' => 'Intervention\Image\Facades\Image',
+		'Entrust'   => 'Zizaco\Entrust\EntrustFacade'
 
 	],
 

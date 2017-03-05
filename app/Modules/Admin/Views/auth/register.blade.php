@@ -24,6 +24,7 @@
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
+	<link rel="stylesheet" href="{!!asset('public/assets/backend/css/style.css')!!}">
 </head>
 <body class="hold-transition register-page">
 	<div class="register-box">
@@ -49,6 +50,10 @@
 				<div class="form-group has-feedback">
 					<input type="password" class="form-control" placeholder="Retype password (*)" name="password_confirmation">
 					<span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+				</div>
+				<div class="form-group">
+					<input type="radio" name="role" value="admin" id="admin"> <label for="admin">Admin</label>
+					<input type="radio" name="role" value="teacher" id="teacher"> <label for="teacher">Teacher</label>
 				</div>
 				<div class="row">
 					<!-- <div class="col-xs-8">
@@ -88,7 +93,7 @@
 			$('input').iCheck({
 				checkboxClass: 'icheckbox_square-blue',
 				radioClass: 'iradio_square-blue',
-				increaseArea: '20%' // optional
+				increaseArea: '5%' // optional
 			});
 		});
 	</script>

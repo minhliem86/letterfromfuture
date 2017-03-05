@@ -1,5 +1,4 @@
 <?php
-
 Route::group(['namespace'=>'App\Modules\Frontend\Controllers'],function(){
 
 	Route::get('import-data',['as'=>'getImportdata','uses'=>'ImportdataController@getImport']);

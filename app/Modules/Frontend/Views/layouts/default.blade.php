@@ -70,12 +70,11 @@
 			/*SLIDER BANER*/
 			$('.banner-container').revolution({
 				delay:6000,
-                startheight:366,
-                startwidth:1170,
-                navigationArrows :'none',
-                onHoverStop : 0,
-                navigationType : 'none'
-
+        startheight:366,
+        startwidth:1170,
+        navigationArrows :'none',
+        onHoverStop : 0,
+        navigationType : 'none'
 			})
 		})
 	</script>

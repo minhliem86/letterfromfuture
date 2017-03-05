@@ -55,3 +55,7 @@ ul.ul-image li{
 ul.ul-image li button{
 	width:100%;
 }
+
+label[for="admin"]{
+	margin-right:30px;
+}

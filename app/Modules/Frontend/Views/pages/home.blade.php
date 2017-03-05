@@ -57,34 +57,6 @@
 	<div class="container">
 		<div class="row">
 			<div class="inner-banner">
-				<!-- <div class="banner-container">
-					<ul>
-						<li data-transition="boxslide" data-slotamount="7">
-							<img src="{!!asset('public/assets/frontend')!!}/images/banner.png" class="img-responsive" alt="Letter for future">
-							<div class="caption sfl hidden-sm hidden-xs" id="caption1"  data-x="760" data-y="100" data-speed="500" data-start="1900" data-easing="easeOutBack">
-								<div class="wrap-caption-content">
-									<p class="normal-text">
-										Cuộc thi viết tiếng Anh hào hứng nhất trong năm
-										<span class="title-banner">"Thư gửi từ tương lai"</span>
-									</p>
-								</div>
-							</div>
-						</li>
-
-						<li data-transition="slotslide-vertical" data-slotamount="7">
-							<img src="{!!asset('public/assets/frontend')!!}/images/banner.png" class="img-responsive" alt="Letter for future">
-							<div class="caption sfl" id="caption1"  data-x="760" data-y="100" data-speed="500" data-start="1900" data-easing="easeOutBack">
-								<div class="wrap-caption-content">
-									<p class="normal-text">
-										Cuộc thi viết tiếng Anh hào hứng nhất trong năm
-										<span class="title-banner">"2020 TO 2017"</span>
-									</p>
-								</div>
-							</div>
-						</li>
-
-					</ul>
-				</div> -->
 				<img src="{!!asset('public/assets/frontend')!!}/images/banner.png" class="img-responsive" alt="Thư gửi từ tương lai">
 
 			</div> <!-- end inner-banner-->

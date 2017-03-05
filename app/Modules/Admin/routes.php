@@ -19,13 +19,16 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 
 	Route::get('logout',['as'=>'admin.getLogout','uses'=>'Auth\AuthController@getLogout']);
 
-	Route::group(['middleware'=>'auth'],function(){
+	Route::group(['middleware'=>'loginpermission'],function(){
 		Route::get('dashboard',['as'=>'admin','uses'=>'AdminController@index']);
 
+		// ADD MORE USER
+		Route::get('create-user',['as'=>'admin.getCreateUser','uses'=>'AdminController@getCreateUser']);
+		Route::post('create-user',['as'=>'admin.postCreateUser','uses'=>'AdminController@postCreateUser']);
 		/*CHANGE PASS*/
 		Route::get('password',['as'=>'admin.getChangePass','uses'=>'AdminController@getChangePass']);
 		Route::post('password',['as'=>'admin.postChangePass','uses'=>'AdminController@postChangePass']);
 	});
-	
+
 
 });
