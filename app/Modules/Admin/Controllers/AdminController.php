@@ -10,12 +10,22 @@ use Validator;
 
 use App\Models\Permission;
 use App\Models\Role;
+use Notification;
+
+use App\Repositories\Admin\TeacherRepositoryInterface;
 
 class AdminController extends Controller {
 
+	public $user_instance;
+
+	public function __construct(TeacherRepositoryInterface $user_instance){
+		$this->user_instance = $user_instance;
+	}
+
+
 	protected function create(array $data)
 	{
-			return App\Models\User::create([
+			return User::create([
 					'name' => $data['name'],
 					'email' => $data['email'],
 					'password' => bcrypt($data['password']),
@@ -73,38 +83,31 @@ class AdminController extends Controller {
 				$request, $validator
 			);
 		}
-		$user = $this->registrar->create($request->all());
+		$user = $this->create($request->all());
 		$data_role = $request->input('role');
 
-		$permission = new Permission();
-		$permission->name = 'can_login';
-		$permission->display_name = 'Login Permission';
-		$permission->description = 'Can login CMS';
-		$permission->save();
+		$permission = Permission::where('name','can_login')->first();
 
-		$role = new Role();
-
-		switch ($data_role) {
-			case 'admin':
-				$role->name = $data_role;
-				$role->display_name = 'Administrator';
-				break;
-
-			default:
-				$role->name = $data_role;
-				$role->display_name = 'Teacher ';
-				break;
-		}
-
-		$role->save();
-
-		$role->attachPermission($permission);
+		$role = Role::where('name',$data_role)->first();
 
 		$user->attachRole($role);
 
-		$this->auth->login($user);
-
-		return redirect()->route('admin');
+		// $this->auth->login($user);
+		Notification::success('New User is created !!!');
+		return redirect()->route('admin.getTeacher');
 	}
+
+	public function getTeacher(){
+		$data_teacher = $this->user_instance->getUserRole('teacher');
+		return view('Admin::pages.user.index',compact('data_teacher'));
+
+	}
+
+ public function postDeleteTeacher($id){
+	 $this->user_instance->deleteUserRole($id);
+	 Notification::success('User is removed !!!');
+	 return redirect()->back();
+ }
+
 
 }

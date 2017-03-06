@@ -63,6 +63,8 @@
 @stop
 
 @section('script')
+<!-- iCheck -->
+{!!Html::style('public/assets/backend/plugins/iCheck/square/blue.css')!!}
 {!!Html::script('public/assets/backend/plugins/iCheck/icheck.min.js')!!}
 <script>
   $(function () {

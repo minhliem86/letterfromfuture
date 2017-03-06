@@ -149,7 +149,8 @@ return [
 		'SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider',
 		'App\Modules\ModuleServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
-		'Zizaco\Entrust\EntrustServiceProvider'
+		'Zizaco\Entrust\EntrustServiceProvider',
+		'Krucas\Notification\NotificationServiceProvider'
 
 	],
 
@@ -203,7 +204,8 @@ return [
 		'Facebook' => 'SammyK\LaravelFacebookSdk\FacebookFacade',
 		'Excel' => 'Maatwebsite\Excel\Facades\Excel',
 		'Image' => 'Intervention\Image\Facades\Image',
-		'Entrust'   => 'Zizaco\Entrust\EntrustFacade'
+		'Entrust'   => 'Zizaco\Entrust\EntrustFacade',
+		'Notification' => 'Krucas\Notification\Facades\Notification'
 
 	],
 

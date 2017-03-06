@@ -53,7 +53,7 @@
 
             <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user"></i> Quản lý Thành Viên</a>
             <ul class="dropdown-menu">
-              <li><a href="#" >Danh sách thành viên</a></li>
+              <li><a href="{!!route('admin.getTeacher')!!}" >Danh sách thành viên</a></li>
               <li><a href="{!!route('admin.getCreateUser')!!}">Thêm thành viên</a></li>
             </ul>
           </li>

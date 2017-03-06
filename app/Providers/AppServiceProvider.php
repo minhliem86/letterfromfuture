@@ -29,8 +29,13 @@ class AppServiceProvider extends ServiceProvider {
 			'Illuminate\Contracts\Auth\Registrar',
 			'App\Services\Registrar'
 		);
-		$this->app->bind('App\Repositories\Frontend\StudentRepositoryInterface','App\Repositories\Eloquent\Frontend\StudentRepository'
-		);
+		$this->app->bind('App\Repositories\Frontend\StudentRepositoryInterface','App\Repositories\Eloquent\Frontend\StudentRepository');
+
+		$this->app->bind('App\Repositories\Admin\TeacherRepositoryInterface',
+		'App\Repositories\Eloquent\Admin\TeacherRepository');
+
+		$this->app->bind('App\Repositories\Admin\StudentRepositoryInterface',
+		'App\Repositories\Eloquent\Admin\StudentRepository');
 	}
 
 }

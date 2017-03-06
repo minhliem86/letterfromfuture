@@ -30,5 +30,10 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 		Route::post('password',['as'=>'admin.postChangePass','uses'=>'AdminController@postChangePass']);
 	});
 
+	Route::get('listTeacher',['as'=>'admin.getTeacher','uses'=>'AdminController@getTeacher']);
+	Route::delete('deleteTeacher/{id}',['as'=>'admin.deleteDeleteTeacher','uses'=>'AdminController@postDeleteTeacher'])->where(['id'=>'[a-zA-Z0-9./\-]+']);
+
+	Route::get('postDetail/{id}',['as'=>'admin.getPostDetail','uses'=>'PostController@getDetail']);
+
 
 });
