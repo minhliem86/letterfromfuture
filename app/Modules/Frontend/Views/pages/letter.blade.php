@@ -18,7 +18,14 @@
 				// countContainerClass: 'count-area'
 			})
 
+			$('textarea[name="quote"]').textcounter({
+				type: 'word',
+				max: '50',
+				// countContainerClass: 'count-area'
+			})
+
 			$('.wrap-bottom').niceScroll();
+			$('.wrap-quote-textarea').niceScroll();
 		})
 	</script>
 	<script type="text/javascript">
@@ -41,13 +48,6 @@
 		   fjs.parentNode.insertBefore(js, fjs);
 		 }(document, 'script', 'facebook-jssdk'));
 		 /*END*/
-
-		 /*CHECK LOGIN FB*/
-		// function loginFB(){
-		// 	FB.login(function(respone){
-		// 		console.log('Login done');
-		// 	},{scope: 'email,publish_actions'})
-		// }
 
 		// Convert a data URI to blob
 		function dataURItoBlob(dataURI) {
@@ -108,7 +108,9 @@
             //Custom position: first name
             if (element.attr("name") == "content" ) {
                 $("#validate-content").text($(error).html());
-            }else{
+            }else if(element.attr("name") == "quote"){
+								$("#validate-quote").text($(error).html());
+						}else{
             	element.after(error);
             }
         },
@@ -320,7 +322,10 @@
 							<div class="top-right">
 								<div class="wrap-quote">
 									<p class="note-quote">Câu trích dẫn <i>(Sẽ được hiển thị trong phần chia sẻ trên Facebook)</i></p>
-									<textarea name="quote" class="quote-input"></textarea>
+									<div class="wrap-quote-textarea">
+										<div id="validate-quote"></div>
+										<textarea name="quote" class="quote-input"></textarea>
+									</div>
 								</div>
 							</div>
 							<div class="bottom-right">

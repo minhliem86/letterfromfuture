@@ -1,4 +1,4 @@
-<div class="header">
+		<div class="header">
 			<div class="container">
 				<div class="row">
 					<div class="inner-header clearfix">
@@ -14,8 +14,8 @@
 							<ul class="ul-navbar">
 								<li><a href="{!!route('homepage')!!}">Cuộc thi</a></li>
 								<li><a href="{!!route('homepage')!!}">Thể lệ</a></li>
-								<li ><a href="{!!route('homepage')!!}" class="disable-link">Top 50</a></li>
-								<li ><a href="{!!route('homepage')!!}">Bài dự thi</a></li>
+								<li><a href="#" >Bài Dự Thi</a></li>
+								<li><a href="#" >Bài viết của tôi</a></li>
 							</ul>
 						</div>
 					</div> <!-- end inner-header-->

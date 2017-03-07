@@ -91,7 +91,8 @@ class StudentController extends Controller {
 				'letter_quote' => $quote,
 			];
 			$update_student = $this->studentRepository->updateAccount(Session::get('student_code'),$data);
-			$view = view('Frontend::ajax-template.letter-template',compact('from','message','quote'))->render();
+			$img = $this->studentRepository->getStudent(Session::get('student_code'))->fb_img;
+			$view = view('Frontend::ajax-template.letter-template',compact('from','message','quote','img'))->render();
 			return response()->json(['rs'=>$view]);
 		}
 	}
