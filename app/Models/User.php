@@ -5,12 +5,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
 	use Authenticatable, CanResetPassword;
-  use EntrustUserTrait;
+
+	 use EntrustUserTrait;
 
 	/**
 	 * The database table used by the model.
@@ -33,16 +35,12 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
-	public function role_user(){
-		return $this->belongsToMany('App\Models\Role');
-	}
-
-	public function perm_user(){
-		return $this->belongsToMany('App\Models\Permission');
-	}
-
 	public function votes(){
-		return $this->hasMany('App\Models\Vote','user_id');
+		return $this->morphMany('App\Models\Vote','voteable');
 	}
+
+	// public function student(){
+	// 	return $this->morphedByMany('App\Models\Student','voteable');
+	// }
 
 }

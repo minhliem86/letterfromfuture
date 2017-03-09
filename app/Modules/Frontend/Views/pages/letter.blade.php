@@ -18,7 +18,14 @@
 				// countContainerClass: 'count-area'
 			})
 
+			$('textarea[name="quote"]').textcounter({
+				type: 'word',
+				max: '50',
+				// countContainerClass: 'count-area'
+			})
+
 			$('.wrap-bottom').niceScroll();
+			$('.wrap-quote-textarea').niceScroll();
 		})
 	</script>
 	<script type="text/javascript">
@@ -42,13 +49,6 @@
 		 }(document, 'script', 'facebook-jssdk'));
 		 /*END*/
 
-		 /*CHECK LOGIN FB*/
-		// function loginFB(){
-		// 	FB.login(function(respone){
-		// 		console.log('Login done');
-		// 	},{scope: 'email,publish_actions'})
-		// }
-
 		// Convert a data URI to blob
 		function dataURItoBlob(dataURI) {
 		    var byteString = atob(dataURI.split(',')[1]);
@@ -71,7 +71,7 @@
 					method: 'feed',
 					display: 'popup',
 					name: filename,
-					caption: caption,
+					caption: 'ila.edu.vn',
 					description: description,
 					link : link,
 				},function(res){
@@ -108,7 +108,9 @@
             //Custom position: first name
             if (element.attr("name") == "content" ) {
                 $("#validate-content").text($(error).html());
-            }else{
+            }else if(element.attr("name") == "quote"){
+								$("#validate-quote").text($(error).html());
+						}else{
             	element.after(error);
             }
         },
@@ -305,7 +307,7 @@
 								</div>
 								<div class="wrap-bottom">
 									<div id="validate-content"></div>
-									<textarea name="content" class="content-input"></textarea>
+									<textarea name="content" class="content-input">@if(Session::has('student_message')) Session::get('student_message') @endif</textarea>
 								</div>
 
 								<div class="count-area"></div>
@@ -320,12 +322,15 @@
 							<div class="top-right">
 								<div class="wrap-quote">
 									<p class="note-quote">Câu trích dẫn <i>(Sẽ được hiển thị trong phần chia sẻ trên Facebook)</i></p>
-									<textarea name="quote" class="quote-input"></textarea>
+									<div class="wrap-quote-textarea">
+										<div id="validate-quote"></div>
+										<textarea name="quote" class="quote-input">@if(Session::has('student_quote')) Session::get('student_quote') @endif</textarea>
+									</div>
 								</div>
 							</div>
 							<div class="bottom-right">
-								<a href="{!!route('homepage')!!}" class="btn-home">Trang Chủ</a>
-								<button class="btn-submit" type="submit">Chia sẻ bài viết</button>
+								<!-- <a href="{!!route('homepage')!!}" class="btn-home">Trang Chủ</a> -->
+								<button class="btn-submit" type="submit">Nộp bài & chia sẻ</button>
 							</div>
 						</div>
 

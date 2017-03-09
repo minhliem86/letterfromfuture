@@ -15,6 +15,8 @@ class AddmoreFblinkColumnStudent extends Migration {
 		Schema::table('students', function(Blueprint $table)
 		{
 			$table->string('fb_link')->nullable();
+			$table->string('fb_img_thumb')->nullable();
+			$table->boolean('noibat')->default(0);
 		});
 	}
 

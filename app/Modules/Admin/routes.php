@@ -19,21 +19,15 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 
 	Route::get('logout',['as'=>'admin.getLogout','uses'=>'Auth\AuthController@getLogout']);
 
-	Route::group(['middleware'=>'loginpermission'],function(){
+	Route::group(['middleware'=>'auth'],function(){
 		Route::get('dashboard',['as'=>'admin','uses'=>'AdminController@index']);
 
-		// ADD MORE USER
-		Route::get('create-user',['as'=>'admin.getCreateUser','uses'=>'AdminController@getCreateUser']);
-		Route::post('create-user',['as'=>'admin.postCreateUser','uses'=>'AdminController@postCreateUser']);
+		Route::get('/vote/{id}',['as'=>'admin.getVote','uses'=>'PostController@getDetail']);
+
 		/*CHANGE PASS*/
 		Route::get('password',['as'=>'admin.getChangePass','uses'=>'AdminController@getChangePass']);
 		Route::post('password',['as'=>'admin.postChangePass','uses'=>'AdminController@postChangePass']);
 	});
-
-	Route::get('listTeacher',['as'=>'admin.getTeacher','uses'=>'AdminController@getTeacher']);
-	Route::delete('deleteTeacher/{id}',['as'=>'admin.deleteDeleteTeacher','uses'=>'AdminController@postDeleteTeacher'])->where(['id'=>'[a-zA-Z0-9./\-]+']);
-
-	Route::get('postDetail/{id}',['as'=>'admin.getPostDetail','uses'=>'PostController@getDetail']);
 
 
 });

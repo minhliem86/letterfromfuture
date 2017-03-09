@@ -18,6 +18,8 @@ class Votes extends Migration {
 			$table->integer('diem')->default(1);
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+			$table->integer('voteable_id')->unsigned();
+			$table->string('voteable_type');
 			$table->timestamps();
 		});
 	}

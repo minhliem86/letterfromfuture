@@ -16,10 +16,6 @@ class StudentController extends Controller {
 		$this->studentRepository = $studentInterface;
 	}
 
-	public function getIndex($slug){
-
-	}
-
 	public function getLogin(){
 		return view('Frontend::pages.login');
 	}
@@ -41,7 +37,6 @@ class StudentController extends Controller {
 			}
 		}
 	}
-
 
 	public function postLogin(Request $request){
 		$student_code = $request->input('code');
@@ -72,8 +67,13 @@ class StudentController extends Controller {
 
 	public function AjaxImg(Request $request){
 		if($request->ajax()){
+
+			$path = 'public/upload/img-fb';
+			$name = time().'-'.Session::get('student_code').'-imgfb';
+			$img_thumb = \Image::make($request->input('img'))->resize(80,80)->save($path.'/'.$name.'.jpg');
 			$data = [
 				'fb_img' => $request->input('img'),
+				'fb_img_thumb' => asset('public/upload/img-fb').'/'.$name.'.jpg'
 			];
 			$this->studentRepository->updateAccount(Session::get('student_code'),$data);
 			return response()->json(['rs'=>'ok']);
@@ -86,12 +86,18 @@ class StudentController extends Controller {
 			$from = $request->input('from');
 			$message = $request->input('message');
 			$quote = $request->input('quote');
+
+			// ADD SESSION MESSAGE
+			Session::put('student_message',$message);
+			Session::put('student_quote',$quote);
+
 			$data = [
 				'letter_content' => $message,
 				'letter_quote' => $quote,
 			];
 			$update_student = $this->studentRepository->updateAccount(Session::get('student_code'),$data);
-			$view = view('Frontend::ajax-template.letter-template',compact('from','message','quote'))->render();
+			$img = $this->studentRepository->getStudent(Session::get('student_code'))->fb_img_thumb;
+			$view = view('Frontend::ajax-template.letter-template',compact('from','message','quote','img'))->render();
 			return response()->json(['rs'=>$view]);
 		}
 	}
@@ -120,13 +126,18 @@ class StudentController extends Controller {
 		}
 	}
 
+
+
 	public function getDone(){
+		$student = Session::get('student_code').'-logined';
+		\Session::put('my_post',$student);
+		// \Session::put('my_post',Session::get('student_code').'-logined');
 		\Session::forget('student_code');
+		\Session::forget('student_message');
+		\Session::forget('student_quote');
 		return view('Frontend::pages.thankyou');
 	}
 
-public function test(){
-}
 
 
 }

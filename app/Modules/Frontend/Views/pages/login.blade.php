@@ -47,6 +47,11 @@
 									<input type="submit" class="btn-login" value="Bắt đầu viết" disabled="disabled">
 									<a href="{!!route('homepage')!!}" class="btn-home">Trang chủ</a>
 								</div>
+								@if(Session::has('error'))
+								<div class="wrap-error">
+									<p class="error">{!!Session::get('error')!!}</p>
+								</div>
+								@endif
 							</form>
 						</div>
 					</div>

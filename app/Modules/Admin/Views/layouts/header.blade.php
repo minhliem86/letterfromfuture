@@ -18,14 +18,14 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
-          <!-- <li class="dropdown messages-menu"> -->
+          <li class="dropdown messages-menu">
             <!-- Menu toggle button -->
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-envelope-o"></i>
               <span class="label label-warning"></span>
             </a>
             <ul class="dropdown-menu">
-              <!-- <li class="header">Bạn có  5  thông báo mới</li> -->
+              <li class="header">Bạn có  5  thông báo mới</li>
               <li>
                 <!-- inner menu: contains the messages -->
                 <ul class="menu">
@@ -47,18 +47,8 @@
           </li>
           <!-- /.messages-menu -->
 
-          @if(Auth::user()->hasRole('admin'))
-          <!-- SUPER ADMIN MANAGE -->
-          <li class="manage-user dropdown">
 
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user"></i> Quản lý Thành Viên</a>
-            <ul class="dropdown-menu">
-              <li><a href="{!!route('admin.getTeacher')!!}" >Danh sách thành viên</a></li>
-              <li><a href="{!!route('admin.getCreateUser')!!}">Thêm thành viên</a></li>
-            </ul>
-          </li>
-          <!-- END SUPPER ADMIN -->
-          @endif
+
 
 
           <!-- User Account Menu -->
