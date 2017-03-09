@@ -20,6 +20,8 @@ interface StudentRepositoryInterface{
 
 	public function getMoreVote($filter);
 
+	public function getListLastBaiviet($arr);
+
 	// DETAIL PAGE
 	public function getDetailBaiviet($id);
 }

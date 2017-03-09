@@ -1,9 +1,9 @@
-<div class="wrap-content-left">
+<div class="wrap-content-left clearfix">
   <h4 class="title-preview">Thư từ tương lai</h4>
   <canvas id="img-avatar" width="80" height="80"></canvas>
   <div class="wrap-top">
-    <p class="normal-text"><label for="from">From: </label><input type="text" name="from" class="input-letter from-input" disabled="disabled" value="{!!$from!!} 2030"></p>
-    <p class="normal-text"><label for="to">To: </label><input type="text" name="to" class="input-letter to-input" disabled="disabled" value="{!!$from!!}"></p>
+    <p class="normal-text"><label for="from">From: </label><input type="text" name="from" class="input-letter from-input" disabled="disabled" value="{!!$from!!}"></p>
+    <p class="normal-text"><label for="to">To: </label><input type="text" name="to" class="input-letter to-input" disabled="disabled" value="<?php echo str_replace('2030','2017',$from); ?>"></p>
   </div>
   <div class="wrap-bottom">
     <textarea name="content" class="content-input">{!!$quote!!}</textarea>

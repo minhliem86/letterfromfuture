@@ -5,28 +5,31 @@ Route::group(['namespace'=>'App\Modules\Frontend\Controllers'],function(){
 	Route::get('import-data',['as'=>'getImportdata','uses'=>'ImportdataController@getImport']);
 	Route::post('import-data',['as'=>'postImportdata','uses'=>'ImportdataController@postImport']);
 
-	Route::get('/',['as'=>'homepage','uses'=>'HomeController@getBaiduthi']);
+	Route::get('/',['as'=>'homepage','uses'=>'HomeController@getIndex']);
 	Route::post('/ajaxShowmoreBaiThi',['as'=>'frontend.ajaxShowmoreBaiThi','uses'=>'HomeController@ajaxShowmoreBaiThi']);
 	Route::post('/ajaxShowmoreTop50',['as'=>'frontend.ajaxShowmoreTop50','uses'=>'HomeController@ajaxShowmoreTop50']);
-
 	Route::get('/bai-viet/{id}',['as'=>'frontend.BaivietDetail','uses'=>'HomeController@getBaivietDetail'])->where(['id','[a-zA-Z0-9./\-]']);
 
+	Route::get('/dang-nhap',['as'=>'frontend.getDangnhaphocvien','uses'=>'HomeController@getDangnhaphocvien']);
+	Route::post('/dang-nhap',['as'=>'frontend.postDangnhaphocvien','uses'=>'HomeController@postDangnhaphocvien']);
 
-	Route::get('/dang-nhap',['as'=>'frontend.getLogin','uses'=>'StudentController@getLogin']);
+	Route::get('/baivietcuatoi',['as'=>'frontend.getBaivietcuatoi','uses'=>'HomeController@getBaivietcuatoi']);
+
+	Route::get('/dang-nhap-bai-viet',['as'=>'frontend.getLogin','uses'=>'StudentController@getLogin']);
 	Route::post('/checkLogin',['as'=>'frontend.checkLogin','uses'=>'StudentController@checkLogin']);
 	Route::post('/login',['as'=>'frontend.postLogin','uses'=>'StudentController@postLogin']);
 
+	Route::get('baivietduthi',['as'=>'frontend.getBaivietDuThi','uses'=>'HomeController@getBaivietDuThi']);
 	Route::get('/buc-thu-tu-tuong-lai',['as'=>'frontend.getLetter','uses'=>'StudentController@getLetter']);
 	Route::post('write-letter-ajax',['as'=>'frontend.ajaxLetter','uses'=>'StudentController@ajaxLetter']);
 	// Route::post('/write-letter',['as'=>'frontend.postLetter','uses'=>'StudentController@postLetter']);
 
 	Route::post('/ajaxImgFB',['as'=>'frontend.AjaxImg','uses'=>'StudentController@AjaxImg']);
-
 	Route::post('/ajaxOrder',['as'=>'frontend.AjaxOrder','uses'=>'StudentController@AjaxOrder']);
-
 	Route::post('/ajaxImgUpload',['as'=>'frontend.AjaxGetImg','uses'=>'StudentController@AjaxGetImg']);
-
 	Route::get('/thank-you',['as'=>'frontend.Done', 'uses'=>'StudentController@getDone']);
+
+
 
 	Route::get('/test',['uses'=>'StudentController@test']);
 

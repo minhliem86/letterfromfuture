@@ -71,7 +71,7 @@
 					method: 'feed',
 					display: 'popup',
 					name: filename,
-					caption: caption,
+					caption: 'ila.edu.vn',
 					description: description,
 					link : link,
 				},function(res){
@@ -329,8 +329,8 @@
 								</div>
 							</div>
 							<div class="bottom-right">
-								<a href="{!!route('homepage')!!}" class="btn-home">Trang Chủ</a>
-								<button class="btn-submit" type="submit">Chia sẻ bài viết</button>
+								<!-- <a href="{!!route('homepage')!!}" class="btn-home">Trang Chủ</a> -->
+								<button class="btn-submit" type="submit">Nộp bài & chia sẻ</button>
 							</div>
 						</div>
 

@@ -14,8 +14,8 @@
 							<ul class="ul-navbar">
 								<li><a href="{!!route('homepage')!!}">Cuộc thi</a></li>
 								<li><a href="{!!route('homepage')!!}">Thể lệ</a></li>
-								<li><a href="#" >Bài Dự Thi</a></li>
-								<li><a href="#" >Bài viết của tôi</a></li>
+								<li><a href="{!!route('frontend.getBaivietDuThi')!!}" >Bài Dự Thi</a></li>
+								<li><a href="{!!route('frontend.getDangnhaphocvien')!!}" >Bài viết của tôi</a></li>
 							</ul>
 						</div>
 					</div> <!-- end inner-header-->

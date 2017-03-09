@@ -28,7 +28,6 @@
 	<link rel="stylesheet" href="{!!asset('public/assets/frontend')!!}/js/revolution/css/settings.css">
 	<script src="{!!asset('public/assets/frontend')!!}/js/revolution/jquery.themepunch.plugins.min.js"></script>
 	<script src="{!!asset('public/assets/frontend')!!}/js/revolution/jquery.themepunch.revolution.min.js"></script>
-
 	<script type="text/javascript">
 		$(document).ready(function(){
 			var w_window = $(window).width();
@@ -72,7 +71,7 @@
 			});
 			if(w_window < 850) sticky.unstick();
 
-			
+
 		})
 	</script>
 	@yield('script')

@@ -104,6 +104,7 @@
 										<li>Cuộc thi dành riêng cho học viên <span class="align">Super Juniors và Smart Teens của ILA.</span></li>
 										<li>Bức thư viết bằng tiếng Anh.</li>
 										<li>Độ dài: tối đa 200 chữ.</li>
+										<li>Đăng nhập bằng Mã học viên ILA và Facebook.</li>
 										<li>Hạn chót tham gia: 10/03/2017</li>
 										<li>Ngày thông báo kết quả: 15/03/2017</li>
 									</ul>

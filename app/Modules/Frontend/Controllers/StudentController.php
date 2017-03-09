@@ -16,9 +16,6 @@ class StudentController extends Controller {
 		$this->studentRepository = $studentInterface;
 	}
 
-	public function getIndex($slug){
-
-	}
 
 	public function getLogin(){
 		return view('Frontend::pages.login');
@@ -72,8 +69,13 @@ class StudentController extends Controller {
 
 	public function AjaxImg(Request $request){
 		if($request->ajax()){
+
+			$path = 'public/upload/img-fb';
+			$name = time().'-'.Session::get('student_code').'-imgfb';
+			$img_thumb = \Image::make($request->input('img'))->resize(80,80)->save($path.'/'.$name.'.jpg');
 			$data = [
 				'fb_img' => $request->input('img'),
+				'fb_img_thumb' => asset('public/upload/img-fb').'/'.$name.'.jpg'
 			];
 			$this->studentRepository->updateAccount(Session::get('student_code'),$data);
 			return response()->json(['rs'=>'ok']);
@@ -91,7 +93,7 @@ class StudentController extends Controller {
 				'letter_quote' => $quote,
 			];
 			$update_student = $this->studentRepository->updateAccount(Session::get('student_code'),$data);
-			$img = $this->studentRepository->getStudent(Session::get('student_code'))->fb_img;
+			$img = $this->studentRepository->getStudent(Session::get('student_code'))->fb_img_thumb;
 			$view = view('Frontend::ajax-template.letter-template',compact('from','message','quote','img'))->render();
 			return response()->json(['rs'=>$view]);
 		}
@@ -121,13 +123,14 @@ class StudentController extends Controller {
 		}
 	}
 
+
+
 	public function getDone(){
+		\Session::put('my_post',Session::get('student_code').'-logined');
 		\Session::forget('student_code');
 		return view('Frontend::pages.thankyou');
 	}
 
-public function test(){
-}
 
 
 }
