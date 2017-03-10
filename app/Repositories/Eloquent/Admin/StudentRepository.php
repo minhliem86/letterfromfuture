@@ -15,8 +15,17 @@ class StudentRepository implements StudentRepositoryInterface{
     return $this->student->where('joined',1)->orderBy('vote','DESC')->get();
   }
 
-  public function getDetailPost($id){
-    return $this->student->with('votes')->find($id);
+  public function getListStudent(){
+    return $this->student->select('id','name','fb_link','fb_img','vote')->where('joined','1')->orderBy('updated_at','DESC')->get();
+  }
+
+  public function getDetailStudent($id){
+    return $this->student->select('id','name','fb_link','fb_img','vote','letter_content','letter_quote')->find($id);
+  }
+
+  public function updateVoteStudent($id,$data){
+    $update = $this->student->find($id);
+    $update->update($data);
   }
 
 

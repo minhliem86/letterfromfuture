@@ -9,7 +9,7 @@
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<meta name="csrf-token" content="{!! csrf_token() !!}">
 	<META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-	
+
 	{!!Html::style('public/assets/backend/bootstrap/css/bootstrap.min.css')!!}
 
 		 <!-- Font Awesome -->
@@ -58,6 +58,12 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
+
+	{!!Html::script('public/assets/backend/js/jquery-1.12.4.min.js')!!}
+	<!-- CORE JQUERY SCRIPTS -->
+	<!-- JRATE -->
+	{!!Html::script(asset('public/assets/backend').'/js/jrate/jRate.min.js')!!}
+
 </head>
 <body class="skin-blue sidebar-mini">
 	<div class="wrapper">
@@ -73,8 +79,6 @@ desired effect
 		@include('Admin::layouts.footer')
 	</div>	<!-- end wrapper-->
 
-	{!!Html::script('public/assets/backend/js/jquery-1.12.4.min.js')!!}
-	 <!-- CORE JQUERY SCRIPTS -->
 	{!!Html::script('public/assets/backend/bootstrap/js/bootstrap.min.js')!!}
 
 	<!-- datepicker -->
@@ -88,7 +92,9 @@ desired effect
 	{!!Html::script('public/assets/backend/js/alert/alertify.js')!!}
 	{!!Html::style('public/assets/backend/js/alert/alertify.css')!!}
 	{!!Html::style('public/assets/backend/js/alert/semantic.min.css')!!}
-	
+
+
+
 	@yield('script')
 </body>
 </html>

@@ -53,7 +53,7 @@ class AuthController extends Controller {
 
     protected function create(array $data)
     {
-        return App\Models\User::create([
+        return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
@@ -77,7 +77,7 @@ class AuthController extends Controller {
 	 */
 	public function postRegister(Request $request)
 	{
-		$validator = $this->registrar->validator($request->all());
+		$validator = $this->validator($request->all());
 
 		if ($validator->fails())
 		{
@@ -85,8 +85,8 @@ class AuthController extends Controller {
 				$request, $validator
 			);
 		}
-
-		$this->auth->login($this->registrar->create($request->all()));
+		
+		$this->auth->login($this->create($request->all()));
 
 		return redirect($this->redirectPath());
 	}

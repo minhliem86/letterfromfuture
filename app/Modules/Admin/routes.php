@@ -22,7 +22,8 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 	Route::group(['middleware'=>'auth'],function(){
 		Route::get('dashboard',['as'=>'admin','uses'=>'AdminController@index']);
 
-		Route::get('/vote/{id}',['as'=>'admin.getVote','uses'=>'PostController@getDetail']);
+
+		Route::resource('/student','PostController');
 
 		/*CHANGE PASS*/
 		Route::get('password',['as'=>'admin.getChangePass','uses'=>'AdminController@getChangePass']);
