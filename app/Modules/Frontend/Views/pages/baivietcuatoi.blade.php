@@ -21,10 +21,10 @@
 			<div class="inner-letter clearfix">
 				<form action="" method="POST" class="form-letter">
 					<div class="left-letter">
-						<div class="wrap-content-left">
+						<div class="wrap-content-left clearfix">
               <span class="top-right hidden-md hidden-lg">
 								<img src="{!!$baiviet->fb_img!!}" class="img-responsive" alt="">
-                <p class="name">{!!$baiviet->name!!}</p>
+                <!-- <p class="name">{!!$baiviet->name!!}</p> -->
 							</span>
 							<div class="wrap-top">
 								<p class="normal-text"><label for="from">From: </label><input type="text" name="from" class="input-letter from-input" disabled="disabled" value="{!!$baiviet->name!!} 2030"></p>

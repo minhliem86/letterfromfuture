@@ -63,7 +63,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="inner-banner">
-				<img src="{!!asset('public/assets/frontend')!!}/images/banner.jpg" class="img-responsive" alt="">
+				<img src="{!!asset('public/assets/frontend')!!}/images/banner.jpg" class="img-responsive visible-md visible-lg" alt="">
+				<img src="{!!asset('public/assets/frontend')!!}/images/banner-mobile.jpg" class="img-responsive visible-sm visible-xs" alt="">
 			</div> <!-- end inner-banner-->
 		</div>
 	</div>
@@ -139,6 +140,9 @@
 
 							</div> <!-- end each term-->
 						</div>
+					</div>
+					<div class="wrap-btn">
+						<a href="{!!route('frontend.getLogin')!!}" class="btn-dk btn">Đăng ký tham dự</a>
 					</div>
 				</div>
 

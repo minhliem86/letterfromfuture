@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&subset=vietnamese');
 
 @mixin fontbase{
 	font-family: 'Roboto Condensed', sans-serif;
@@ -313,8 +313,8 @@ a,a:hover, a:focus{
 				font-size:2.2rem;
 				line-height:2.8rem;
 				span.year{
-					font-size:3.5rem;
-					line-height:4rem;
+					font-size:2.4rem;
+					line-height:3rem;
 				}
 			}
 			@include media(481px, 849px){
@@ -407,9 +407,9 @@ a,a:hover, a:focus{
 					}
 					&.list-02, &.list-03{
 						padding-left:15px;
-						@include media(320px, 480px){
-							padding-left:0;
-						}
+						// @include media(320px, 480px){
+						// 	padding-left:0;
+						// }
 					}
 				}
 			}
@@ -432,18 +432,23 @@ a,a:hover, a:focus{
 		}
 
 		.wrap-btn{
-			margin-top:3.5rem;
-			text-align: center;
-			a.btn-dk{
-				padding:7px 20px;
-				background:$xanhila;
-				color:white;
-				font-size:1.4rem;
-				text-transform:uppercase;
-				box-shadow:0 0 19px 0 #ddd;
-				@include transition(all 0.3s);
+			text-align:center;
+			margin:2rem 0 0;
+			a{
+				@include fontbase;
+				color:$text01;
+				text-transform: uppercase;
+				padding:0.8rem 3rem;
+				border:0.1rem solid lighten($text02, 20%);
+				box-shadow: 0 0 10px lighten($text02, 20%);
+				border-radius: 0;
+				font-size:1.8rem;
+				font-weight: 600;
+				background:transparent;
+				@include transition(all 0.4s);
 				&:hover{
-					color:$do;
+					background:$xanhila;
+					color:white;
 				}
 			}
 		}
@@ -674,6 +679,9 @@ a,a:hover, a:focus{
 		// }
 
 		.item-top50{
+			@include media(320px, 480px){
+				overflow: hidden;
+			}
 			.grid{
 				figure.effect{
 					max-width:130px;
@@ -703,6 +711,13 @@ a,a:hover, a:focus{
 				max-height:160px;
 				width:160px;
 				margin: 0 auto 3px;
+				@include media(320px, 480px){
+					max-width:120px;
+					min-width: 120px;
+					max-height: 120px;
+					width:auto;
+				};
+
 			}
 			h2{
 				font-size:1.3rem;
@@ -1436,6 +1451,10 @@ a,a:hover, a:focus{
 				background:url('../images/bg-letter.jpg')no-repeat;
 				background-size:100% 100%;
 				padding:2.5rem;
+				@include media(320px, 480px){
+					background-image:url('../images/bg-letter-vertical.png');
+					// background-size:cover;
+				}
 				.wrap-top{
 					width:60%;
 					margin-bottom: 3rem;
@@ -1493,11 +1512,12 @@ a,a:hover, a:focus{
 					font-style: italic;
 				}
 				.signature{
+					float:right;
+
 					p.normal-text{
 						font-size:1.4rem;
 						@include fontbase;
 						color:$text02;
-
 					}
 				}
 			}
@@ -1814,6 +1834,10 @@ a,a:hover, a:focus{
 		background-size:100% 100%;
 		padding:2.5rem;
 		position:relative;
+		@include media(320px, 480px){
+			background-image:url('../images/bg-letter-vertical.png');
+			// background-size:cover;
+		}
 		#img-avatar{
 			position:absolute;
 			top:2.5rem;

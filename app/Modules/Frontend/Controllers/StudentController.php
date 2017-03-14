@@ -122,7 +122,7 @@ class StudentController extends Controller {
 				'img_upload' => asset('public/upload/img-user').'/'.$name.'.png',
 			];
 			$update_student = $this->studentRepository->updateAccount(Session::get('student_code'),$data);
-			return response()->json(['rs'=>'ok']);
+			return response()->json(['rs'=>$data['img_upload']]);
 		}
 	}
 
