@@ -10,7 +10,7 @@
 	{!!Html::style('public/assets/backend/bootstrap/css/bootstrap.min.css')!!}
 
 	 <!-- Font Awesome -->
-	{!!Html::style('https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css')!!}
+	{!!Html::style('public/assets/backend/css/fontawesome/css/font-awesome.min.css')!!}
 
 	<!-- Ionicons -->
 	{!!Html::style('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')!!}
@@ -50,6 +50,7 @@
 					<input type="password" class="form-control" placeholder="Retype password (*)" name="password_confirmation">
 					<span class="glyphicon glyphicon-log-in form-control-feedback"></span>
 				</div>
+				
 				<div class="row">
 					<!-- <div class="col-xs-8">
 						<div class="checkbox icheck">

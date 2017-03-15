@@ -35,6 +35,10 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 */
 	protected $hidden = ['password', 'remember_token'];
 
+	public function roles(){
+		return $this->belongsToMany('App\Models\Role','role_user');
+	}
+
 	public function votes(){
 		return $this->morphMany('App\Models\Vote','voteable');
 	}

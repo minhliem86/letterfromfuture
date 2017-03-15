@@ -14,8 +14,9 @@ class LoginPermission {
 	 */
 	public function handle($request, Closure $next)
 	{
-		if(!Auth::check() || !Auth::user()->can('can_login')){
-			return redirect()->route('admin.getlogin')->withErrors('Bạn không có quyền đăng nhập!');
+		if(!Auth::check() || !Auth::user()->can('logincms')){
+			Auth::logout();
+			return redirect()->route('admin.getlogin')->withErrors('You do not have permission to access thi page!');
 		}
 		return $next($request);
 	}

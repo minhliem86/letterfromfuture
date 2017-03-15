@@ -18,8 +18,7 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
-          <li class="dropdown messages-menu">
-            <!-- Menu toggle button -->
+          <!--<li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-envelope-o"></i>
               <span class="label label-warning"></span>
@@ -27,25 +26,44 @@
             <ul class="dropdown-menu">
               <li class="header">Bạn có  5  thông báo mới</li>
               <li>
+                <ul class="menu">
+                  <li>
+                    <a href="">
+                      <h4>
+                      </h4>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer"><a href="">Tất cả liên hệ</a></li>
+            </ul>
+          </li>-->
+
+          <!-- Messages: style can be found in dropdown.less-->
+          @if(Auth::user()->hasRole('admin'))
+          <li class="dropdown messages-menu">
+            <!-- Menu toggle button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              User Managment
+            </a>
+            <ul class="dropdown-menu">
+              <li>
                 <!-- inner menu: contains the messages -->
                 <ul class="menu">
                   <li><!-- start message -->
-                    <a href="">
-                      <!-- Message title and timestamp -->
-                      <h4>
-                      </h4>
-                      <!-- The message -->
-                      <!-- <p></p> -->
-                    </a>
+                    <a href="{!!route('admin.user.getUser')!!}">User list</a>
+                  </li>
+                  <li><!-- start message -->
+                    <a href="{!!route('admin.user.getCreateUser')!!}">Create New User</a>
                   </li>
                   <!-- end message -->
                 </ul>
                 <!-- /.menu -->
               </li>
-              <li class="footer"><a href="">Tất cả liên hệ</a></li>
             </ul>
           </li>
           <!-- /.messages-menu -->
+          @endif
 
 
 

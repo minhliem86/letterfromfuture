@@ -11,17 +11,11 @@
           <input type="hidden" name="diem" value="">
           <div class="row">
             <div class="col-sm-7">
-              <div class="form-group">
                 <h3 class="name">{!!$student->name!!}</h3>
-              </div>
-              <div class="form-group">
                 <h4 class="form-group">{!!$student->letter_quote!!}</h4>
-              </div>
-              <div class="form-group">
                 <div class="wrap-letter">
                   <p>{!!$student->letter_content!!}</p>
                 </div>
-              </div>
             </div>
             <div class="col-sm-5">
               <div class="form-group">

@@ -9,6 +9,8 @@ use Validator;
 use Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Role;
+use App\Models\Permission;
 
 class AuthController extends Controller {
 
@@ -85,8 +87,15 @@ class AuthController extends Controller {
 				$request, $validator
 			);
 		}
-		
-		$this->auth->login($this->create($request->all()));
+		$user = $this->create($request->all());
+
+		$role = Role::where('name',$request->role)->first();
+		if($role){
+			$user->attachRole($role);
+		}else{
+			return redirect()->back()->withInput()->withErrors('error','Do not have Role');
+		}
+		$this->auth->login($user);
 
 		return redirect($this->redirectPath());
 	}

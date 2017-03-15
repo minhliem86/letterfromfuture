@@ -24,6 +24,7 @@
 							<th>ID</th>
 							<th data-width="30%">Fullname</th>
 							<th>Email Address</th>
+							<th>Role</th>
               <th>Created date</th>
 							<th>Action</th>
 						</tr>
@@ -34,9 +35,10 @@
                 <td>{!!$item->id!!}</td>
   							<td >{!!$item->name!!}</td>
   							<td>{!!$item->email!!}</td>
+  							<td>{!!$item->roles()->first()->name!!}</td>
   							<td>{!!$item->created_at!!}</td>
   							<td>
-                  {!!Form::open(array('route'=>array('admin.deleteDeleteTeacher',$item->id),'method'=>'DELETE', 'class' => 'inline'))!!}
+                  {!!Form::open(array('route'=>array('admin.user.deleteUser',$item->id),'method'=>'DELETE', 'class' => 'inline'))!!}
     							<button class="btn  btn-danger btn-xs remove-btn" type="button" onclick="confirm_remove(this);"> Remove </button>
     							{!!Form::close()!!}
   							</td>

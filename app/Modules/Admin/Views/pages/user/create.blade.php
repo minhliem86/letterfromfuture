@@ -11,7 +11,7 @@
   		<div class="register-box-body">
   			<p class="login-box-msg">Register a new membership</p>
   			@include('Admin::errors.listerror')
-  			{!! Form::open(array('route'=>'admin.postCreateUser', 'class'=>'form-register')) !!}
+  			{!! Form::open(array('route'=>'admin.user.postCreateUser', 'class'=>'form-register')) !!}
   				<div class="form-group has-feedback">
   					{!!Form::text('name',old('name'), array('class'=>'form-control', 'placeholder'=>'Fullname'))!!}
   					<span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -33,28 +33,12 @@
   					<input type="radio" name="role" value="teacher" id="teacher"> <label for="teacher">Teacher</label>
   				</div>
   				<div class="row">
-  					<!-- <div class="col-xs-8">
-  						<div class="checkbox icheck">
-  							<label>
-  								<input type="checkbox" name="agree"> Tôi chấp nhận sử dụng dịch vụ
-  							</label>
-  						</div>
-  					</div> -->
-  					<!-- /.col -->
   					<div class="col-xs-12">
   						<button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
   					</div>
   					<!-- /.col -->
   				</div>
   			{!! Form::close()!!}
-  			<!-- <div class="social-auth-links text-center">
-  				<p>- OR -</p>
-  				<a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using
-  				Facebook</a>
-  				<a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using
-  				Google+</a>
-  			</div>
-  			<a href="login.html" class="text-center">I already have a membership</a> -->
   		</div>
   		<!-- /.form-box -->
   	</div>

@@ -19,11 +19,20 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 
 	Route::get('logout',['as'=>'admin.getLogout','uses'=>'Auth\AuthController@getLogout']);
 
-	Route::group(['middleware'=>'auth'],function(){
+	// ROLE
+	Route::resource('/role','RoleController',['only'=>['create','store']]);
+
+	Route::group(['middleware'=>'loginpermission'],function(){
 		Route::get('dashboard',['as'=>'admin','uses'=>'AdminController@index']);
 
-
 		Route::resource('/student','PostController');
+
+		// USER MANAGMENT
+		Route::get('/user',['as'=>'admin.user.getUser','uses'=>'AdminController@getUser']);
+		Route::get('/user/create',['as'=>'admin.user.getCreateUser','uses'=>'AdminController@getCreateUser']);
+		Route::post('/user/create',['as'=>'admin.user.postCreateUser','uses'=>'AdminController@postCreateUser']);
+
+		Route::delete('/user/delete/{id}',['as'=>'admin.user.deleteUser','uses'=>'AdminController@deleteUser']);
 
 		/*CHANGE PASS*/
 		Route::get('password',['as'=>'admin.getChangePass','uses'=>'AdminController@getChangePass']);
