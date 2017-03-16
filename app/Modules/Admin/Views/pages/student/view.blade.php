@@ -56,6 +56,7 @@
         precision:1,
         rating:1,
         count: 5,
+        rating:{!!$student->votes()->where('user_id',Auth::user()->id)->first() ? $student->votes()->where('user_id',Auth::user()->id)->first()->diem : '0'!!},
         onSet: function(rating){
           $('#onset-value').text("You voted: "+rating+ " stars");
           $('input[name="diem"]').val(rating);

@@ -23,7 +23,7 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 	// Route::resource('/role','RoleController',['only'=>['create','store']]);
 
 	Route::group(['middleware'=>'loginpermission'],function(){
-		Route::get('/dashboard',['as'=>'admin','uses'=>'AdminController@index']);
+		Route::get('/dashboard',['as'=>'admin','uses'=>'DashboardController@getIndex']);
 
 		Route::resource('/student','PostController');
 

@@ -12,7 +12,7 @@ class StudentRepository implements StudentRepositoryInterface{
   }
 
   public function getTop50(){
-    return $this->student->where('joined',1)->orderBy('vote','DESC')->get();
+    return $this->student->where('joined',1)->where('vote','!=','null')->orderBy('vote','DESC')->paginate(24);
   }
 
   public function getListStudent(){

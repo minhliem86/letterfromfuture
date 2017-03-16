@@ -10,5 +10,7 @@ interface StudentRepositoryInterface{
 
   public function updateVoteStudent($id,$data);
 
+  
+
 
 }

@@ -3,9 +3,9 @@
     <!-- Logo -->
     <a href="{!!url('/admin/dashboard')!!}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>O</b>SC</span>
+      <span class="logo-mini"><b>L</b>TE</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>OSC</span>
+      <span class="logo-lg"><b>Admin</b>LTE</span>
     </a>
 
     <!-- Header Navbar -->
@@ -65,10 +65,6 @@
           <!-- /.messages-menu -->
           @endif
 
-
-
-
-
           <!-- User Account Menu -->
           <li class="dropdown user user-menu">
             <!-- Menu Toggle Button -->
@@ -93,7 +89,7 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                      <a href="{!!route('admin.getChangePass') !!}" class="btn btn-default btn-flat">Thay đổi mật khẩu</a>
+                      <a href="{!!route('admin.getChangePass') !!}" class="btn btn-default btn-flat">Change Password</a>
                 </div>
                 <div class="pull-right">
                   <a href="{!!route('admin.getLogout')!!}" class="btn btn-default btn-flat">Sign out</a>
