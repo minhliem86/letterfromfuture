@@ -23,7 +23,8 @@
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th data-width="30%">Fullname</th>
+									<th>Photo</th>
+									<th data-width="20%">Fullname</th>
 									<th>Facebook link</th>
 									<th>Status</th>
 									<th>Point</th>
@@ -34,6 +35,7 @@
 								@foreach($data as $item)
 									<tr>
 										<td >{!!$item->id!!}</td>
+										<td ><img src="{!!$item->fb_img!!}" style="width:60px" ></td>
 										<td>{!!$item->name!!}</td>
 										<td><a href="{!!$item->fb_link!!}" target="_blank">Facebook link</a></td>
 										<td>{!!$item->votes()->where('user_id',Auth::user()->id)->first() ? 'Done' : 'Not'!!}</td>
@@ -83,9 +85,9 @@
 			{!! Notification::showError('alertify.error(":message");') !!}
 
 			var table = $('#table-post').DataTable({
-				"order":[[4,'asc']],
+				"order":[[5,'asc']],
 				"columnDefs":[
-						{"targets":[0,2,3,5],"orderable":false}
+						{"targets":[0,1,3,4,6],"orderable":false}
 				],
 				"bLengthChange": false,
 				"bFilter" : false,

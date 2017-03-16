@@ -20,10 +20,10 @@ Route::group(['prefix'=>'admin','namespace'=>'App\Modules\Admin\Controllers'],fu
 	Route::get('logout',['as'=>'admin.getLogout','uses'=>'Auth\AuthController@getLogout']);
 
 	// ROLE
-	Route::resource('/role','RoleController',['only'=>['create','store']]);
+	// Route::resource('/role','RoleController',['only'=>['create','store']]);
 
 	Route::group(['middleware'=>'loginpermission'],function(){
-		Route::get('dashboard',['as'=>'admin','uses'=>'AdminController@index']);
+		Route::get('/dashboard',['as'=>'admin','uses'=>'AdminController@index']);
 
 		Route::resource('/student','PostController');
 

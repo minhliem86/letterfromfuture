@@ -64,6 +64,8 @@ desired effect
 	<!-- JRATE -->
 	{!!Html::script(asset('public/assets/backend').'/js/jrate/jRate.min.js')!!}
 
+	@yield('css')
+
 </head>
 <body class="skin-blue sidebar-mini">
 	<div class="wrapper">

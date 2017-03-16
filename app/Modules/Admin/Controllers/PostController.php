@@ -64,6 +64,6 @@ class PostController extends Controller {
         Notification::success('Update Successful !');
         return redirect()->route();
     }
-    return redirect()->route();
+    return redirect()->route('admin.student.index');
   }
 }
