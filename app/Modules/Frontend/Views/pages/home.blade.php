@@ -77,7 +77,7 @@
 				<div class="container-fluid">
 					<h1 class="title01">Hãy tham gia<span class="year">Cuộc thi viết tiếng Anh hào hứng nhất trong năm</span></h1>
 					<div class="wrap-content">
-						<p class="des-context">Hãy tưởng tượng bạn đang ở năm 2020, bn đang ở đâu, đang làm gì, đã thay đổi như thế nào, đã có mơ ước nào được thành hiện thực chưa? Hãy viết một bức thư bằng tiếng Anh mô tả bạn ở 2020 và gửi đến cho chính mình ở năm 2017 nhé, nếu được, gửi thêm cho bản thân những lời khuyên chân thành nhất nữa.</p>
+						<p class="des-context">Hãy tưởng tượng bạn đang ở năm 2030, bn đang ở đâu, đang làm gì, đã thay đổi như thế nào, đã có mơ ước nào được thành hiện thực chưa? Hãy viết một bức thư bằng tiếng Anh mô tả bạn ở 2030 và gửi đến cho chính mình ở năm 2017 nhé, nếu được, gửi thêm cho bản thân những lời khuyên chân thành nhất nữa.</p>
 						<p class="des-context">Chủ đề thật thú vị phải không nào? Hãy click “Tham gia” và bắt tay vào viết ngay thôi, vì phần thưởng vô cùng hấp dẫn đấy!</p>
 					</div>
 					<div class="wrap-btn">
@@ -106,8 +106,8 @@
 										<li>Bức thư viết bằng tiếng Anh.</li>
 										<li>Độ dài: tối đa 200 chữ.</li>
 										<li>Đăng nhập bằng Mã học viên ILA và Facebook.</li>
-										<li>Hạn chót tham gia: 10/03/2017</li>
-										<li>Ngày thông báo kết quả: 15/03/2017</li>
+										<li>Hạn chót tham gia: 10/04/2017</li>
+										<li>Ngày thông báo kết quả: 15/04/2017</li>
 									</ul>
 								</div> <!-- end wrap-content- term -->
 							</div> <!-- end each term-->
