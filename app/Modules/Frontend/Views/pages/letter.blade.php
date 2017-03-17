@@ -180,8 +180,12 @@
 						});
 					} else if (response.status === 'not_authorized') {
 						alert('Bạn cần cấp quyền cho ứng dụng Letter From Future!');
-						$('.overlay-bg').fadeOut();
+
+						// $('.overlay-bg').fadeIn();
 						FB.login(function(response){
+							if(response.status === 'not_authorized'){
+									window.location = "{!!route('frontend.getLetter')!!}";
+							}
 							FB.api('me/picture?type=large',function(response){
 								var img = response.data.url;
 								$.ajax({
@@ -231,6 +235,9 @@
 							},{scope: "email"});
 					} else {
 						FB.login(function(response){
+							if(response.status === 'not_authorized'){
+									window.location = "{!!route('frontend.getLetter')!!}";
+							}
 							FB.api('me/picture?type=large',function(response){
 								var img = response.data.url;
 								$.ajax({
@@ -266,9 +273,7 @@
 													type:'POST',
 													data: {img:dataimg,  _token:$("meta[name='csrf-token']").attr("content")},
 													success:function(data){
-														if(data.rs = 'ok'){
 															postFacebook('Thư Từ Tương Lai',quote,message,'{!!route("frontend.BaivietDetail",Session::get("id_hocvien"))!!}',data.rs)
-														}
 													}
 												});
 
@@ -281,7 +286,10 @@
 						},{scope: "email"});
 					}
 				});
-			}
+
+				// data.submit();
+			},
+
 		})
 	});
 	</script>
@@ -297,10 +305,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="inner-letter clearfix">
-					<form action="" method="POST" class="form-letter">
+					<form action="{!!route('frontent.postSubmit')!!}" method="POST" class="form-letter">
 						{!!Form::token()!!}
 						<div class="left-letter">
-							<div class="wrap-content-left">
+							<div class="wrap-content-left clearfix">
 								<div class="wrap-top">
 									<p class="normal-text"><label for="from">From: </label><input type="text" name="from" class="input-letter from-input" disabled="disabled" value="{!!$data->name!!} 2030"></p>
 									<p class="normal-text"><label for="to">To: </label><input type="text" name="to" class="input-letter to-input" disabled="disabled" value="{!!$data->name!!} 2017"></p>

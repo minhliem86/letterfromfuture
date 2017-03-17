@@ -47,7 +47,7 @@ class StudentController extends Controller {
 				Session::put('id_hocvien',$data->id);
 				return redirect()->route('frontend.getLetter');
 			}else{
-				return redirect()->back()->with('error','Mỗi học viê chỉ có thể tham gia 01 lần. Vui lòng đợi kết quả từ ILA.');
+				return redirect()->back()->with('error','Mỗi học viên chỉ có thể tham gia 01 lần. Vui lòng đợi kết quả từ ILA.');
 			}
 
 		}else{
@@ -136,6 +136,10 @@ class StudentController extends Controller {
 		\Session::forget('student_message');
 		\Session::forget('student_quote');
 		return view('Frontend::pages.thankyou');
+	}
+
+	public function postSubmit(){
+		return redirect()->route('frontend.Done');
 	}
 
 

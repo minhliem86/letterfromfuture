@@ -6,14 +6,13 @@
 							<div class="each-footer">
 								<h2 class="title-each-footer">Chương trình anh Ngữ</h2>
 								<ul class="list-chuongtrinh">
-									<li><a href="#">ILa Jumpstart</a></li>
-									<li><a href="#">ILa Super Juniors</a></li>
-									<li><a href="#">ILa Smart Teens</a></li>
-									<li><a href="#">ILa Global English</a></li>
-									<li><a href="#">ILa Coporate Training</a></li>
-									<li><a href="#">ILa Exam Enghlish</a></li>
-									<li><a href="#">ILa Overseas Study Centres</a></li>
-									<li><a href="#">Teacher Training Courses</a></li>
+									<li><a href="http://ilajs-hoctienganh.edu.vn/" target="_blank">ILa Jumpstart</a></li>
+									<li><a href="http://ilasj-hoctienganh.edu.vn/" target="_blank">ILa Super Juniors</a></li>
+									<li><a href="http://ilast-hoctienganh.edu.vn/" target="_blank">ILa Smart Teens</a></li>
+									<li><a href="http://ilage-hoctienganh.edu.vn/" target="_blank">ILa Global English</a></li>
+									<li><a href="http://ilace-hoctienganh.edu.vn/" target="_blank">ILa Coporate Training</a></li>
+									<li><a href="http://ilaee-luyenthi.edu.vn/" target="_blank">ILa Exam Enghlish</a></li>
+									<li><a href="http://ila-duhoc.edu.vn/" target="_blank">ILa Overseas Study Centres</a></li>
 								</ul>
 							</div>
 							<div class="each-footer">

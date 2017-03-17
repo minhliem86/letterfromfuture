@@ -19,7 +19,7 @@ Route::group(['namespace'=>'App\Modules\Frontend\Controllers'],function(){
 	Route::post('/checkLogin',['as'=>'frontend.checkLogin','uses'=>'StudentController@checkLogin']);
 	Route::post('/login',['as'=>'frontend.postLogin','uses'=>'StudentController@postLogin']);
 
-	Route::get('baivietduthi',['as'=>'frontend.getBaivietDuThi','uses'=>'HomeController@getBaivietDuThi']);
+	Route::get('/baivietduthi',['as'=>'frontend.getBaivietDuThi','uses'=>'HomeController@getBaivietDuThi']);
 	Route::get('/buc-thu-tu-tuong-lai',['as'=>'frontend.getLetter','uses'=>'StudentController@getLetter']);
 	Route::post('write-letter-ajax',['as'=>'frontend.ajaxLetter','uses'=>'StudentController@ajaxLetter']);
 	// Route::post('/write-letter',['as'=>'frontend.postLetter','uses'=>'StudentController@postLetter']);
@@ -28,6 +28,7 @@ Route::group(['namespace'=>'App\Modules\Frontend\Controllers'],function(){
 	Route::post('/ajaxOrder',['as'=>'frontend.AjaxOrder','uses'=>'StudentController@AjaxOrder']);
 	Route::post('/ajaxImgUpload',['as'=>'frontend.AjaxGetImg','uses'=>'StudentController@AjaxGetImg']);
 	Route::get('/thank-you',['as'=>'frontend.Done', 'uses'=>'StudentController@getDone']);
+	Route::post('/submit',['as'=>'frontent.postSubmit','uses'=>'StudentController@postSubmit']);
 
 
 
